@@ -37,3 +37,5 @@ cadena_3 = 'facultad'
 contiene_s(cadena_1)
 contiene_s(cadena_2)
 contiene_s(cadena_3)
+
+#
