@@ -4,15 +4,17 @@ import sys
 from six.moves import input as raw_input
 
 def main():
-    transition = [[[0,1],[0]], [[2],[2]]]
+    transition = [[[0,1],[0]], [[1],[1]]]
     input = raw_input("Enter the string: ")
     input = list(input)
 
     for i in range(len(input)): #Cambiamos a,b por 0,1 para simplificar el uso.
         if input[i]=='a':
             input[i]='0' 
-        else:
+        elif input[i]=='b':
             input[i]='1'
+        else:
+            print("Character Error")
 
     final = "1" #El ultimo estado lo ponemos = {1}
     start = 0
