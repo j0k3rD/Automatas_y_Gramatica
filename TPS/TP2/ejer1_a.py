@@ -1,8 +1,5 @@
 # Ejercicio 1_a -- Automata para '(A|B)*'
 
-#nfa simulation for (a|b)*abb
-#state 4 is a trap state
-
 import sys
 from six.moves import input as raw_input
 
