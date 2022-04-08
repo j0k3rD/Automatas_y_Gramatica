@@ -4,7 +4,7 @@ import sys
 from six.moves import input as raw_input
 
 def main():
-    transition = [[[0,1],[0]], [[2],[2]]]
+    transition = [[0,1],[0]], [[2],[3]], [[3],[3]]
     input = raw_input("Enter the string: ")
     input = list(input)
 
@@ -14,7 +14,7 @@ def main():
         else:
             input[i]='1'
 
-    final = "1" #El ultimo estado lo ponemos = {1}
+    final = "2" #El ultimo estado lo ponemos = {1}
     start = 0
 
     trans(transition, input, final, start)
@@ -23,7 +23,7 @@ def main():
 
 def trans(transition, input, final, state):
     for each in transition[state][int(input[0])]: #Verifica cada posibilidad 
-        if each < 2:                              #Avanza solo si se encuentra en un estado no hipotetico.
+        if each < 3:                              #Avanza solo si se encuentra en un estado no hipotetico.
             state = each
             if len(input)==1:
                 if (str(state) in final): #Lee el ultimo caracter y verifica que el estado actual no sea el ultimo.

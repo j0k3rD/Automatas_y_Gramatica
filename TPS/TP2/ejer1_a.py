@@ -11,10 +11,12 @@ def main():
     for i in range(len(input)): #Cambiamos a,b por 0,1 para simplificar el uso.
         if input[i]=='a':
             input[i]='0' 
-        elif input[i]=='b':
-            input[i]='1'
+        # elif input[i]=='b':
+        #     input[i]='1'
+        # elif input[i]=='':
+        #     input[i]=''
         else:
-            print("Character Error")
+            input[i]='1'
 
     final = "1" #El ultimo estado lo ponemos = {1}
     start = 0
