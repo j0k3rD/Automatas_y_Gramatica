@@ -8,6 +8,6 @@ Prof. Lucas Alonso
   - Expresiones Regulares
 
 ## TP2
-  - Automatas
+  - Automatas AFN
 
 ## TP3
