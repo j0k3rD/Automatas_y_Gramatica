@@ -1,41 +1,40 @@
-# Ejercicio 1_a -- Automata para '[A|B]'
-import Constants
+# Ejercicio 1_a -- Automata para '(A|B)*'
 
+#nfa simulation for (a|b)*abb
+#state 4 is a trap state
+
+import sys
+from six.moves import input as raw_input
 
 def main():
-    lista = []
-    estado = 0
-    print(Constants.INIT_STATE)
-    create_state(estado)
-    x = print(input("Ingrese el Automata a evaluar: \n"))
-    lista.append(x)
-    change_state()
-    print(Constants.NEXT_STATE)
-    
-def switch_state(lista, estado):
-    for i in range(len(lista)):
-        if i == "a":
-            create_state(estado)
-        elif i == "b":
-            
-        elif i == "":
-            change_state()
+    transition = [[[0,1],[0]], [[2],[2]]]
+    input = raw_input("Enter the string: ")
+    input = list(input)
+
+    for i in range(len(input)): #Cambiamos a,b por 0,1 para simplificar el uso.
+        if input[i]=='a':
+            input[i]='0' 
         else:
-            state_end()
+            input[i]='1'
+
+    final = "1" #El ultimo estado lo ponemos = {1}
+    start = 0
+
+    trans(transition, input, final, start)
+    print("rejected")
 
 
-        
-def create_state(estado):
-    if switch_state():
-        estado +=1
-    
+def trans(transition, input, final, state):
+    for each in transition[state][int(input[0])]: #Verifica cada posibilidad 
+        if each < 2:                              #Avanza solo si se encuentra en un estado no hipotetico.
+            state = each
+            if len(input)==1:
+                if (str(state) in final): #Lee el ultimo caracter y verifica que el estado actual no sea el ultimo.
+                    print("accepted")
+                    sys.exit()
+                else:
+                    continue
+            trans(transition, input[1:], final, state) #Determina que el siguiente caracter a analizar sera el
+            # que siga en la lista de inputs
 
-
-def state_end(lista):
-    if lista.index(-1):
-        print("Estado finalizado")
-
-
-
-if __name__=='__main__':
-    main()
+main()
