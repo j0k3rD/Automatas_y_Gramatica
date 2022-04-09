@@ -4,7 +4,7 @@ import sys
 from six.moves import input as raw_input
 
 def main():
-    transition = [[[0,1],[0]], [[1],[1]]]
+    transition = [[[0,1],[0]], [[2],[1]]]
     input = raw_input("Enter the string: ")
     input = list(input)
 
