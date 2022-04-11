@@ -1,10 +1,11 @@
-# Ejercicio 1 - TP3 - Automata: (a|b)*
+# Ejercicio 2 - TP3 - Automata: (aa|b)*(a|bb)*
 
-aut = str(input("Enter the string: "))
+aut = input("Enter the string: ")
 
 dfa = {0:{'a':1, 'b':2},
-       1:{'a':1, 'b':2},
-       2:{'a':1, 'b':2}}
+       1:{'a':1, 'b':3}, 
+       2:{'a':3, 'b':2},
+       3:{'a':3, 'b':3}}
 
 # accepting = "2"
 initial = 0
@@ -15,5 +16,4 @@ def accepts(transitions,initial,accepting,s):
         state = transitions[state][c]
     return state in accepting
 
-print(accepts(dfa,initial,{c},aut))
-
+print(accepts(dfa,initial,{3},aut))

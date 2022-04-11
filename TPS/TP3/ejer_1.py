@@ -1,20 +1,19 @@
-w = str(input("Enter the string: "))
+# Ejercicio 1 - TP3 - Automata: (a|b)*
 
-transitions = [
-    {"a": {1,2}},
-    {"b": {1, 2}},
-    {"c": {1,2}}
-]
-starting_state = 0
-accepting_states = {0}
+aut = input("Enter the string: ")
 
-def nfa(w):
-    cur_states = {starting_state}
-    for c in w:
-        if not cur_states: 
-            print("reject")
-        cur_states = set.union(*
-            (transitions[s].get(c, set()) for s in cur_states))
-    print("accept") if cur_states & accepting_states else print("reject")
+dfa = {0:{'a':1, 'b':2},
+       1:{'a':1, 'b':3}, 
+       2:{'a':3, 'b':2},
+       3:{'a':3, 'b':3}}
 
-nfa(w)
+# accepting = "2"
+initial = 0
+
+def accepts(transitions,initial,accepting,s):
+    state = initial
+    for c in s:
+        state = transitions[state][c]
+    return state in accepting
+
+print(accepts(dfa,initial,{3},aut))
