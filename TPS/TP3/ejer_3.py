@@ -1,7 +1,6 @@
 # Ejercicio 2 - TP3 - Automata: (aa|b)*(a|bb)*
 
-aut = input(str("Enter the string: "))
-aut1 = aut.replace(" ","")
+aut = input("Enter the string: ")
 
 dfa = {0:{'a':1, 'b':2},
        1:{'a':1, 'b':3}, 
@@ -17,4 +16,4 @@ def accepts(transitions,initial,accepting,s):
         state = transitions[state][c]
     return state in accepting
 
-print(accepts(dfa,initial,{1,2,3},aut1))
+print(accepts(dfa,initial,{3},aut))
