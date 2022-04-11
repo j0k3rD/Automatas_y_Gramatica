@@ -11,3 +11,4 @@ Prof. Lucas Alonso
   - Automatas AFN
 
 ## TP3
+  - Automatas AFD
