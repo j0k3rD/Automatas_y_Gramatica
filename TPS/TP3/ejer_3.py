@@ -1,4 +1,4 @@
-# Ejercicio 2 - TP3 - Automata: (a|b)*(a|b|e)
+# Ejercicio 3 - TP3 - Automata: (a|b)*(a|b|e)
 
 aut = input("Enter the string: ")
 aut.re
